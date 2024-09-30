@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2 class="mb-3">To-Do Task Manager</h2>
+
+  <!-- Form input task -->
+  <form (ngSubmit)="addTask()" class="form-inline mb-3">
+    <input type="text" [(ngModel)]="taskName" name="task" class="form-control mr-2" placeholder="Enter a task" required />
+    <button type="button" class="btn btn-primary" (click)="addTask()">Add Task</button>
+  </form>
+
+  <!-- Tabel untuk menampilkan task -->
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Task Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td *ngIf="!task.isEditing">{{ task.name }}</td>
+        <td *ngIf="task.isEditing">
+          <input [(ngModel)]="task.name" name="editTask" class="form-control" />
+        </td>
+        <td>
+          <button *ngIf="!task.isEditing" class="btn btn-info mr-2" (click)="editTask(task)">Edit</button>
+          <button *ngIf="task.isEditing" class="btn btn-success mr-2" (click)="saveTask(task, task.name)">Save</button>
+          <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

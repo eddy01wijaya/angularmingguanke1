@@ -1,0 +1,14 @@
+<ol class="list-group list-group-numbered">
+  <app-customer-detail
+    *ngFor="let customer of customers!.data"
+    [customer]="customer"
+  ></app-customer-detail>
+</ol>
+<br />
+<ngb-pagination
+  class="d-flex justify-content-center"
+  [(page)]="page"
+  [pageSize]="5"
+  [collectionSize]="customers.items"
+  (pageChange)="onPaginateReservation($event)"
+/>
