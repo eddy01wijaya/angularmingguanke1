@@ -8,8 +8,8 @@ import { ReservasiService } from '../../../../cores/services/reservasi.service';
   styleUrl: './customer-detail.component.css',
 })
 export class CustomerDetailComponent {
-  @Input()
-  customer!: ICustomer;
+  @Input() customer!: ICustomer;
+  @Input() showButtons: boolean = true;
 
   constructor(private reservasiService: ReservasiService) {}
 
