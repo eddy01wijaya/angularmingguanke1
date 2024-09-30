@@ -15,7 +15,7 @@
   </span>
   <button
     (click)="customerReservasi()"
-    *ngIf="customer.status != 'macet'"
+    *ngIf="customer.status != 'macet' && showButtons"
     class="btn btn-primary m-1"
   >
     pilih
